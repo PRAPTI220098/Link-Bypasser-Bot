@@ -84,22 +84,22 @@ def loopthread(message: Message, otherss=False):
 
     if bypasser.ispresent(bypasser.ddl.ddllist, urls[0]):
         msg: Message = app.send_message(
-            message.chat.id, "⚡ __generating...__", reply_to_message_id=message.id
+            message.chat.id, "⚡ __Generating...__", reply_to_message_id=message.id
         )
     elif freewall.pass_paywall(urls[0], check=True):
         msg: Message = app.send_message(
-            message.chat.id, "🕴️ __jumping the wall...__", reply_to_message_id=message.id
+            message.chat.id, "🕴️ __Jumping the wall...__", reply_to_message_id=message.id
         )
     else:
         if "https://olamovies" in urls[0] or "https://psa.wf/" in urls[0]:
             msg: Message = app.send_message(
                 message.chat.id,
-                "⏳ __this might take some time...__",
+                "⏳ __This might take some time...__",
                 reply_to_message_id=message.id,
             )
         else:
             msg: Message = app.send_message(
-                message.chat.id, "🔎 __bypassing...__", reply_to_message_id=message.id
+                message.chat.id, "🔎 __Bypassing...__", reply_to_message_id=message.id
             )
 
     strt = time()
@@ -134,7 +134,7 @@ def loopthread(message: Message, otherss=False):
                     pass
             else:
                 app.send_message(
-                    message.chat.id, "__Failed to Jump", reply_to_message_id=message.id
+                    message.chat.id, "__Failed to Jump__", reply_to_message_id=message.id
                 )
         else:
             try:
@@ -200,26 +200,17 @@ def send_start(
 ):
     app.send_message(
         message.chat.id,
-        f"__👋 Hi **{message.from_user.mention}**, i am Link Bypasser Bot, just send me any supported links and i will you get you results.\nCheckout /help to Read More__",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "🌐 Source Code",
-                        url="https://github.com/bipinkrish/Link-Bypasser-Bot",
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "Replit",
-                        url="https://replit.com/@bipinkrish/Link-Bypasser#app.py",
-                    )
-                ],
-            ]
-        ),
-        reply_to_message_id=message.id,
-    )
+        f"""*Hello {message.from_user.first_name}*👋,
 
+I am Link Bypasser Bot. I can Bypass Link For You and Get Original Link.
+
+*Simply Send Me a Valid Link and Get Original Link.*
+
+*Made With ❤️ by [SANCHIT](@X668F)*""",
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Dev", user_id=1866299978)]]),
+        reply_to_message_id=message.id,
+disable_web_page_preview=True
+    )
 
 # help command
 @app.on_message(filters.command(["help"]))
@@ -248,7 +239,7 @@ def receive(
 # doc thread
 def docthread(message: Message):
     msg: Message = app.send_message(
-        message.chat.id, "🔎 __bypassing...__", reply_to_message_id=message.id
+        message.chat.id, "🔎 __Bypassing...__", reply_to_message_id=message.id
     )
     print("sent DLC file")
     file = app.download_media(message)
